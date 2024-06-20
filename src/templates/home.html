@@ -1,0 +1,11 @@
+{% extends 'base.html' %} 
+{% block page_title %}
+Home - {{ block.super }} 
+{% endblock page_title %} 
+
+{% block content %}
+<h1>Home</h1>
+<p>{{content}}</p>
+
+{% include 'snippets/user.html' %}
+{% endblock content %}
