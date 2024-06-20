@@ -11,3 +11,12 @@ def home_page_view(request, *args, **kwargs):
     "title": "Hello World!",
     "content": "Welcome to the home page. Page visits: " + str(queryset.count()) + " Total visits: " + str(total.count())
   })
+
+def about_page_view(request, *args, **kwargs):
+  queryset = PageVisit.objects.filter(path=request.path)
+  total = PageVisit.objects.all()
+  PageVisit.objects.create(path=request.path)
+  return render(request, "home.html", {
+    "title": "Hello World!",
+    "content": "Welcome to the about page. Page visits: " + str(queryset.count()) + " Total visits: " + str(total.count())
+  })
